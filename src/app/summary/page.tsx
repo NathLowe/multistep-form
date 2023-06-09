@@ -25,7 +25,7 @@ export default function SummaryPage() {
         })
         total += planData? planData.price[period] : 0
         return total
-    },[])
+    },[addOns,period,planData])
   return (
     <>
         <PageTitle

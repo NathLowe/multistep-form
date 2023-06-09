@@ -14,12 +14,12 @@ export default function PlanPage() {
     // Verify if page accessible
     const router = useRouter()
     const infosCompleted = useInfos(state=>state.completed)
-    if (!infosCompleted) {
-        useEffect(()=>{
-            router.push('/')
-        },[router])
-        return null
-    }
+    let goBack = false
+    if(!infosCompleted) goBack = true
+    
+    useEffect(()=>{
+        if(goBack) router.push('/')
+    },[router,goBack])
 
     // Getting Plan state from the store
     const {plan,period,setPlan,setPeriod} = usePlan(state => ({
@@ -39,6 +39,7 @@ export default function PlanPage() {
         setPeriod(newPeriod)
     },[setPeriod,period])
 
+    if(goBack) return null
     return (
         <>
             <PageTitle

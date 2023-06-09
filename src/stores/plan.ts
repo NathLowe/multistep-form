@@ -1,3 +1,5 @@
+'use client'
+
 import { PlanType, PlanPeriod } from "@/lib/data";
 import { create } from "zustand";
 

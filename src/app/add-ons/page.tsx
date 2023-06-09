@@ -19,17 +19,22 @@ export default function AddOnsPage() {
         period: state.period,
     }),shallow)
     const {push} = useRouter()
+    let goBack = false
     if(plan === null){
-        useEffect(()=>push('/'),[push])
-        return null
+        goBack = true
     }
+    
+    useEffect(()=>{
+        if(goBack) push('/')
+    },[push,goBack])
 
     // Get AddOns Store
     const {addOns,toggleAddOn} = useAddOns(state=>({
         addOns:state.addOns,
         toggleAddOn:state.toggleAddOn,
     }),shallow)
-    if(addOns === null){
+
+    if(addOns === null || goBack){
         return null
     }
   return (

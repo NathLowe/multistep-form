@@ -25,7 +25,7 @@ export default function NextStepNavigation() {
 
   useEffect(()=>{
     if(nextPath) router.prefetch(nextPath)
-  },[nextPath])
+  },[nextPath,router])
 
   // Check infos before pushing
   const toNext = useCallback(() => {

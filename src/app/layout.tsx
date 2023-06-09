@@ -10,7 +10,8 @@ import NextStepNavigation from '@/components/Navigation/next-step'
 import Footer from '@/components/Footer'
 
 const ubuntu = Ubuntu({ 
-  weight: ['400','500','700']
+  weight: ['400','500','700'],
+  subsets: ['latin']
 })
 
 export const metadata: Metadata = {
